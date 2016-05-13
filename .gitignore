@@ -1,2 +1,5 @@
 
 barbershop.db
+db/migrate/20160512164726_create_clients.rb
+db/migrate/20160512172135_create_barbers.rb
+db/schema.rb
