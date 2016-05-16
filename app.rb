@@ -22,7 +22,7 @@ end
 
 get '/' do
 	
-	erb :index			
+	erb :index
 end
 
 get '/visit' do
@@ -32,13 +32,21 @@ end
 
 post '/visit' do
 
-	 @username = params[:username]
-	 @phone = params[:phone]
-	 @datetime = params[:datetime]
-	 @barber = params[:barber]
-	 @color = params[:color]
+	c = Client.new params[:client]
+	c.save
 
-	 Client.create :name => @username, :phone => @phone, :datestamp => @datetime,:barber => @barber,:color => @color
+	#lame way:
+	 # @username = params[:username]
+	 # @phone = params[:phone]
+	 # @datetime = params[:datetime]
+	 # @barber = params[:barber]
+	 # @color = params[:color]
+
+	 # Client.create :name => @username, 
+		# 		 	:phone => @phone, 
+		# 		 	:datestamp => @datetime,
+		# 		 	:barber => @barber,
+		# 		 	:color => @color
 	 
 	erb "<h3>Спасибо, вы записались</h3>"
 
